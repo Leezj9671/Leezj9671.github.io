@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>自用Docker版Nessus和WVS破解版 | NeverSec的博客 | 安全不止 | Hacking fun!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="awvs,nessus">
+    <meta name="description" content="自己一直在用的 Docker 版的 AWVS 和 Nessus，build 一次即可爽歪歪">
+<meta name="keywords" content="awvs,nessus">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自用Docker版Nessus和WVS破解版">
+<meta property="og:url" content="https://leezj9671.github.io/20190727/docker-nessus-awvs.html">
+<meta property="og:site_name" content="NeverSec的博客 | 安全不止">
+<meta property="og:description" content="自己一直在用的 Docker 版的 AWVS 和 Nessus，build 一次即可爽歪歪">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-08-20T02:49:17.285Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="自用Docker版Nessus和WVS破解版">
+<meta name="twitter:description" content="自己一直在用的 Docker 版的 AWVS 和 Nessus，build 一次即可爽歪歪">
+    
+    <link rel="shortcut icon" href="/favicon.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/sidebar_header.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">n3ver</h5>
+          <a href="mailto:leezj9671@gmail.com" title="leezj9671@gmail.com" class="mail">leezj9671@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                时间线
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Leezj9671" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-link"></i>
+                关于我
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">自用Docker版Nessus和WVS破解版</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">自用Docker版Nessus和WVS破解版</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-07-27T02:43:15.000Z" itemprop="datePublished" class="page-time">
+  2019-07-27
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/神兵利器/">神兵利器</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#简述"><span class="post-toc-number">1.</span> <span class="post-toc-text">简述</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#关于破解补丁"><span class="post-toc-number">2.</span> <span class="post-toc-text">关于破解补丁</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#WVS-快速部署"><span class="post-toc-number">3.</span> <span class="post-toc-text">WVS 快速部署</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Nessus-快速部署"><span class="post-toc-number">4.</span> <span class="post-toc-text">Nessus 快速部署</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#END"><span class="post-toc-number">5.</span> <span class="post-toc-text">END</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-docker-nessus-awvs"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">自用Docker版Nessus和WVS破解版</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-07-27 10:43:15" datetime="2019-07-27T02:43:15.000Z"  itemprop="datePublished">2019-07-27</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/神兵利器/">神兵利器</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>自己一直在用的 Docker 版的 AWVS 和 Nessus，build 一次即可爽歪歪</p>
+<a id="more"></a>
+
+<h2 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h2><ol>
+<li>因为破解版有些问题，有时候一个星期后虽然仍然显示永久激活，但实际上并不可用，二次激活会出现奇怪的问题，每次要用的时候要是突然失去激活状态很容易令人崩溃</li>
+<li>其它人发的 docker 不是很透明，担心不可控，还是自己写一个吧又不难……</li>
+<li>破解版做一下隔离会比较好，毕竟服务器跑着很多奇怪的东西</li>
+<li>docker 版重新部署很快，容易迁移</li>
+</ol>
+<p>因此萌发了用 docker 做扫描器的想法。</p>
+<h2 id="关于破解补丁"><a href="#关于破解补丁" class="headerlink" title="关于破解补丁"></a>关于破解补丁</h2><p>破解补丁均用的是 52pojie 和 t00ls 中分享的，如果不放心的话大可自己替换，对 Dockerfile 稍作修改就可以了~</p>
+<h2 id="WVS-快速部署"><a href="#WVS-快速部署" class="headerlink" title="WVS 快速部署"></a>WVS 快速部署</h2><ol>
+<li>使用的 AWVS 安装包从官网下载或使用文末的百度网盘下载~</li>
+<li>将破解补丁 <code>patch_awvs</code> 和安装包 <code>acunetix_trail.sh</code> 放在该目录下。安装包可以直接从官网下载，而破解补丁用的是广为流传的、52破解上的破解补丁，如有担心可以更换为自己信任的补丁</li>
+<li>运行 Dockerfile</li>
+<li>成功运行后需要手动进入容器进行激活，不过也很简便啦</li>
+<li>用户名密码：<a href="mailto:admin@test.com" target="_blank" rel="noopener">admin@test.com</a>/Aa123456，可在 Dockerfile 自行修改</li>
+</ol>
+<pre><code class="bash">#build image
+docker build -t test/wvs .
+
+#按需修改
+docker run -m 2048M -d -p 13443:13443 --name wvs test/wvs
+
+#进入容器 patch
+docker exec -it -u root wvs /bin/bash
+#运行
+&gt; ./patch_awvs</code></pre>
+<p>目前的缺陷是数据库没法做持久化，不知道是我的姿势有误还是什么问题……解决方法是使用漏洞管控平台对接，如 <a href="https://gitee.com/gy071089/SecurityManageFramwork" target="_blank" rel="noopener">SeMF</a> 之类的 SIEM 平台</p>
+<h2 id="Nessus-快速部署"><a href="#Nessus-快速部署" class="headerlink" title="Nessus 快速部署"></a>Nessus 快速部署</h2><ol>
+<li>建立image</li>
+<li>运行容器，等待插件安装完成即可</li>
+</ol>
+<pre><code class="bash">docker build -t test/nessus .
+#视情况决定是否使用Volume
+docker run -d -m 2048M -v NESSUS_VOL:/opt/nessus -v /usr/share/zoneinfo:/usr/share/zoneinfo:ro -p 8834:8834 --name nessus test/nessus</code></pre>
+<ol start="3">
+<li>修改密码，默认用户名为 Nessus</li>
+</ol>
+<pre><code class="bash">docker exec -it nessus /bin/bash
+/opt/nessus/sbin/nessuscli chpasswd Nessus</code></pre>
+<h2 id="END"><a href="#END" class="headerlink" title="END"></a>END</h2><p>非常 easy 的一套做法，妈妈再也不用担心我的破解版失效了~ Github 链接可点击或阅读原文查看：</p>
+<p><a href="https://github.com/Leezj9671/SecDevices_docker" target="_blank" rel="noopener">https://github.com/Leezj9671/SecDevices_docker</a></p>
+<p>关于破解版资源可访问百度网盘： </p>
+<p>pan.baidu.com/s/1KT1vzGvZLSZcCxVLr5ZHXg 提取码: 6iak</p>
+<p><em>资源均从52pojie、t00ls下载，可自行比对哈希值</em></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-08-20T02:49:17.285Z" itemprop="dateUpdated">2020-08-20 10:49:17</time>
+</span><br>
+
+
+        
+        转载请注明作者和出处：<a href="/20190727/docker-nessus-awvs.html" target="_blank" rel="external">https://leezj9671.github.io/20190727/docker-nessus-awvs.html</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://leezj9671.github.io">
+            <img src="/img/avatar.png" alt="n3ver">
+            n3ver
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/awvs/">awvs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nessus/">nessus</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/20200818/google-api-spider.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">用谷歌搜索API来爬取搜索结果</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/20190710/2019GoogleCTF-web-bnv.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">2019GoogleCTF-web-bnv XXE 题目</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <!-- <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"> -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/gitalk/1.5.0/gitalk.css">
+    <!-- <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script> -->
+    <script src="https://cdn.staticfile.org/gitalk/1.5.0/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: 'ad451cc3feb9601c7fb1',
+          clientSecret: '80a6439f8f871afa1e07a8a4a00d0aafce1f8494',
+          repo: 'Leezj9671.github.io',
+          owner: 'leezj9671',
+          admin: ['leezj9671'],
+          id: decodeURI(location.pathname),
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>n3ver &copy; 2017 - 2021</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备19002199号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！-NeverSec';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Linux服务部署之LNMP搭建(编译安装) | NeverSec的博客 | 安全不止 | Hacking fun!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Linux">
+    <meta name="description" content="前言LNMP算是比较容易的一个服务了，没有使用YUM直接安装还是比较痛苦的。">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux服务部署之LNMP搭建(编译安装)">
+<meta property="og:url" content="https://leezj9671.github.io/20180109/Linux服务部署之LNMP搭建.html">
+<meta property="og:site_name" content="NeverSec的博客 | 安全不止">
+<meta property="og:description" content="前言LNMP算是比较容易的一个服务了，没有使用YUM直接安装还是比较痛苦的。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-23T06:14:50.221Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux服务部署之LNMP搭建(编译安装)">
+<meta name="twitter:description" content="前言LNMP算是比较容易的一个服务了，没有使用YUM直接安装还是比较痛苦的。">
+    
+    <link rel="shortcut icon" href="/favicon.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/sidebar_header.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">n3ver</h5>
+          <a href="mailto:leezj9671@gmail.com" title="leezj9671@gmail.com" class="mail">leezj9671@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                时间线
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Leezj9671" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-link"></i>
+                关于我
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Linux服务部署之LNMP搭建(编译安装)</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Linux服务部署之LNMP搭建(编译安装)</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-01-09T12:56:48.000Z" itemprop="datePublished" class="page-time">
+  2018-01-09
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装步骤"><span class="post-toc-number">2.</span> <span class="post-toc-text">安装步骤</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#AliSQL"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">AliSQL</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Nginx"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">Nginx</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#listen把80改为8090，以防冲突"><span class="post-toc-number"></span> <span class="post-toc-text">listen把80改为8090，以防冲突</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#PHP"><span class="post-toc-number">0.1.</span> <span class="post-toc-text">PHP</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#更改Nginx配置"><span class="post-toc-number">0.2.</span> <span class="post-toc-text">更改Nginx配置</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参考文档"><span class="post-toc-number">1.</span> <span class="post-toc-text">参考文档</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Linux服务部署之LNMP搭建"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Linux服务部署之LNMP搭建(编译安装)</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-01-09 20:56:48" datetime="2018-01-09T12:56:48.000Z"  itemprop="datePublished">2018-01-09</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>LNMP算是比较容易的一个服务了，没有使用YUM直接安装还是比较痛苦的。</p>
+<a id="more"></a>
+<h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><h3 id="AliSQL"><a href="#AliSQL" class="headerlink" title="AliSQL"></a>AliSQL</h3><ol>
+<li>安装编译源码所需库和工具<pre><code class="bash">yum install gcc gcc-c++ ncurses-devel perl </code></pre>
+</li>
+</ol>
+<p>还需要安装cmake和bison，因为已经自带了，所以不详述，详见参考文档<br>2. 增加mysql组和用户</p>
+<pre><code class="bash">groupadd mysql 
+useradd -r -g mysql mysql </code></pre>
+<ol start="3">
+<li><p>建立安装目录和数据文件目录</p>
+<pre><code class="bash">mkdir –p /usr/local/mysql 
+mkdir -p /data/mysqldb </code></pre>
+</li>
+<li><p>下载解压并编译源码</p>
+<pre><code class="bash">git clone https://github.com/alibaba/AliSQL
+unzip AliSQL-master.zip
+cd AliSQL-master
+cmake -DCMAKE_INSTALL_PREFIX=/usr/local/mysql -DMYSQL_UNIX_ADDR=/usr/local/mysql/mysql.sock -DDEFAULT_CHARSET=utf8 -DDEFAULT_COLLATION=utf8_general_ci -DWITH_INNOBASE_STORAGE_ENGINE=1 -DWITH_ARCHIVE_STORAGE_ENGINE=1 -DWITH_BLACKHOLE_STORAGE_ENGINE=1 -DMYSQL_DATADIR=/data/mysqldb -DMYSQL_TCP_PORT=3306 -DENABLE_DOWNLOADS=1 
+make
+make install</code></pre>
+</li>
+<li><p>修改相关目录属主和数组</p>
+<pre><code class="bash">chown -R mysql:mysql /usr/local/mysql
+chown -R mysql:mysql /data/mysqldb</code></pre>
+</li>
+<li><p>初始化AliSQL数据库</p>
+<pre><code class="bash">cd /usr/local/mysql
+scripts/mysql_install_db –user=mysql –datadir=/data/mysqldb </code></pre>
+</li>
+</ol>
+<p>成功初始化后，提示以下信息，记下来以备后用。</p>
+<pre><code class="bash">To start mysqld at boot time you have to copy
+support-files/mysql.server to the right place for your system
+
+PLEASE REMEMBER TO SET A PASSWORD FOR THE MySQL root USER !
+To do so, start the server, then issue the following commands:
+
+  ./bin/mysqladmin -u root password &#39;new-password&#39;
+  ./bin/mysqladmin -u root -h localhost.localdomain password &#39;new-password&#39;
+
+Alternatively you can run:
+
+  ./bin/mysql_secure_installation
+
+which will also give you the option of removing the test
+databases and anonymous user created by default.  This is
+strongly recommended for production servers.
+
+See the manual for more instructions.
+
+You can start the MySQL daemon with:
+
+  cd . ; ./bin/mysqld_safe &amp;
+
+You can test the MySQL daemon with mysql-test-run.pl
+
+  cd mysql-test ; perl mysql-test-run.pl
+
+Please report any problems at http://bugs.mysql.com/
+
+The latest information about MySQL is available on the web at
+
+  http://www.mysql.com
+
+Support MySQL by buying support/licenses at http://shop.mysql.com
+
+New default config file was created as ./my.cnf and
+will be used by default by the server when you start it.
+You may edit this file to change server settings</code></pre>
+<ol start="7">
+<li>复制AliSQL服务启动配置文件、脚本，并加入PATH<pre><code class="bash">cp /usr/local/mysql/support-files/my-default.cnf /etc/my.cnf 
+cp support-files/mysql.server /etc/init.d/mysqld
+vim /etc/profile 
+</code></pre>
+</li>
+</ol>
+<p>#加入这行<br>PATH=/usr/local/mysql/bin:/usr/local/mysql/lib:$PATH </p>
+<p>export PATH<br>source/etc/profile </p>
+<pre><code>
+8. 启动AliSQL服务并加入开机自启
+```bash
+service mysqld start 
+chkconfig –level 35 mysqld on </code></pre><ol start="9">
+<li>检查是否已启动<pre><code class="bash">netstat -tulnp | grep 3306 
+mysql -u root -p</code></pre>
+</li>
+</ol>
+<h3 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h3><ol>
+<li><p>下载包并解压</p>
+<pre><code class="bash">tar zxvf nginx-1.12.2.tar.gz
+cd ./nginx-1.12.2</code></pre>
+</li>
+<li><p>编译安装</p>
+<pre><code class="bash">./configure  --prefix=/usr/local/nginx  --sbin-path=/usr/local/nginx/sbin/nginx --conf-path=/usr/local/nginx/conf/nginx.conf --error-log-path=/var/log/nginx/error.log  --http-log-path=/var/log/nginx/access.log  --pid-path=/var/run/nginx/nginx.pid --lock-path=/var/lock/nginx.lock  --user=nginx --group=nginx --with-http_ssl_module --with-http_stub_status_module --with-http_gzip_static_module --http-client-body-temp-path=/var/tmp/nginx/client/ --http-proxy-temp-path=/var/tmp/nginx/proxy/ --http-fastcgi-temp-path=/var/tmp/nginx/fcgi/ --http-uwsgi-temp-path=/var/tmp/nginx/uwsgi --http-scgi-temp-path=/var/tmp/nginx/scgi --with-pcre</code></pre>
+<p>可能需要依赖文件如下</p>
+<pre><code class="bash">yum install gcc gcc-c++ automake pcre pcre-devel zlip zlib-devel openssl openssl-devel </code></pre>
+<p>安装完毕后有相关的提示信息，马克以备后用</p>
+<pre><code class="bash">Configuration summary
++ using system PCRE library
++ using system OpenSSL library
++ using system zlib library
+
+nginx path prefix: &quot;/usr/local/nginx&quot;
+nginx binary file: &quot;/usr/local/nginx/sbin/nginx&quot;
+nginx modules path: &quot;/usr/local/nginx/modules&quot;
+nginx configuration prefix: &quot;/usr/local/nginx/conf&quot;
+nginx configuration file: &quot;/usr/local/nginx/conf/nginx.conf&quot;
+nginx pid file: &quot;/var/run/nginx/nginx.pid&quot;
+nginx error log file: &quot;/var/log/nginx/error.log&quot;
+nginx http access log file: &quot;/var/log/nginx/access.log&quot;
+nginx http client request body temporary files: &quot;/var/tmp/nginx/client/&quot;
+nginx http proxy temporary files: &quot;/var/tmp/nginx/proxy/&quot;
+nginx http fastcgi temporary files: &quot;/var/tmp/nginx/fcgi/&quot;
+nginx http uwsgi temporary files: &quot;/var/tmp/nginx/uwsgi&quot;
+nginx http scgi temporary files: &quot;/var/tmp/nginx/scgi&quot;</code></pre>
+</li>
+<li><p>修改监听端口</p>
+<pre><code class="bash">vim /usr/local/nginx/conf/nginx.conf
+</code></pre>
+</li>
+</ol>
+<h1 id="listen把80改为8090，以防冲突"><a href="#listen把80改为8090，以防冲突" class="headerlink" title="listen把80改为8090，以防冲突"></a>listen把80改为8090，以防冲突</h1><p>server {<br>    listen       8090;</p>
+<pre><code>
+4. 启动nginx
+```bash
+ln -sf /usr/local/nginx/sbin/nginx  /usr/sbin
+# 启动
+nginx
+# 重载配置
+nginx -s reload
+# 停止
+nginx -s stop</code></pre><p>执行错误有：</p>
+<ul>
+<li><code>nginx: [emerg] getpwnam(&quot;nginx&quot;) failed</code>：表示没有nginx用户（<code>useradd -s /sbin/nologin -M nginx</code>)</li>
+<li><code>nginx: [emerg] mkdir() &quot;/var/tmp/nginx/client/&quot; failed (2: No such file or directory)</code>：表示没有该目录(<code>mkdir -p</code>)</li>
+</ul>
+<ol start="5">
+<li><p>验证nginx是否开启、端口是否监听</p>
+<pre><code class="bash">ps -ef | grep nginx
+netstat -antl | grep 8090</code></pre>
+<p>直接访问<code>ip:8090</code>显示<code>Welcome to Nginx</code>表明安装成功</p>
+</li>
+<li><p>更复杂的配置详看参考文档2</p>
+</li>
+</ol>
+<h3 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h3><ol>
+<li><p>下载PHP压缩包解压并进入目录</p>
+</li>
+<li><p>编译安装<br>为了整合mysql 记得要带上<code>--with-mysql=YOUR_MYSQL_PATH</code></p>
+<pre><code class="bash">./configure --prefix=/usr/local/php --with-config-file-path=/usr/local/php/etc --enable-fpm --with-fpm-user=php-fpm --with-fpm-group=php-fpm --with-mysql=/usr/local/mysql --with-libxml-dir --enable-soap --enable-gd-native-ttf --enable-ftp --enable-mbstring --enable-exif --disable-ipv6 --with-curl --with-openssl</code></pre>
+<p>同样可能需要安装依赖文件，见机行事</p>
+<pre><code class="bash">yum -y install libxml2 libxml2-devel curl curl-devel </code></pre>
+<p>安装后有提示信息，同样马克</p>
+<pre><code class="bash">You may want to add: /usr/local/php/lib/php to your php.ini include_path
+/usr/local/src/php-5.6.0/build/shtool install -c ext/phar/phar.phar /usr/local/php/bin
+ln -s -f /usr/local/php/bin/phar.phar /usr/local/php/bin/phar
+Installing PDO headers:  /usr/local/php/include/php/ext/pdo/</code></pre>
+</li>
+<li><p>修改配置文件</p>
+<pre><code class="bash">cp php-5.6.0/php.ini-production /usr/local/php/etc/php.ini
+cp /usr/local/php/etc/php-fpm.conf.default /usr/local/php/etc/php-fpm.conf</code></pre>
+<p>使用<code>/usr/local/php/sbin/php-fpm -t</code>测试是否成功，不成功则</p>
+<pre><code class="bash">vim /usr/local/php/etc/php-fpm.conf
+# 将其中user和group改成系统用户</code></pre>
+</li>
+<li><p>启用php-fpm </p>
+<pre><code class="bash">service php-fpm start
+</code></pre>
+</li>
+</ol>
+<p>#开机启动和检测是否已启动<br>chkconfig php-fpm on<br>ps aux | grep php-fpm<br>netstat -ant |grep 9000</p>
+<pre><code>
+5. 加入环境变量
+```bash
+vim /etc/profile
+
+##添加以下两行
+PATH=/usr/local/webserver/php/bin:$PATH
+export PATH
+
+source /etc/profile
+# 写个代码检验一下
+php test.php</code></pre><h3 id="更改Nginx配置"><a href="#更改Nginx配置" class="headerlink" title="更改Nginx配置"></a>更改Nginx配置</h3><p>整合成LNMP，.conf的详细参数配置看参考文档2</p>
+<pre><code class="bash">&gt; /usr/local/nginx/conf/nginx.conf
+vim /usr/local/nginx/conf/nginx.conf
+
+
+user nobody nobody;
+worker_processes 2;
+error_log /usr/local/nginx/logs/nginx_error.log crit;
+pid /usr/local/nginx/logs/nginx.pid;
+worker_rlimit_nofile 51200;
+
+events
+{
+    use epoll;
+    worker_connections 6000;
+}
+
+http
+{
+    include mime.types;
+    default_type application/octet-stream;
+    server_names_hash_bucket_size 3526;
+    server_names_hash_max_size 4096;
+    log_format combined_realip &#39;$remote_addr $http_x_forwarded_for [$time_local]&#39;
+    &#39;$host &quot;$request_uri&quot; $status&#39;
+    &#39;&quot;$http_referer&quot; &quot;$http_user_agent&quot;&#39;;
+    sendfile on;
+    tcp_nopush on;
+    keepalive_timeout 30;
+    client_header_timeout 3m;
+    client_body_timeout 3m;
+    send_timeout 3m;
+    connection_pool_size 256;
+    client_header_buffer_size 1k;
+    large_client_header_buffers 8 4k;
+    request_pool_size 4k;
+    output_buffers 4 32k;
+    postpone_output 1460;
+    client_max_body_size 10m;
+    client_body_buffer_size 256k;
+    client_body_temp_path /usr/local/nginx/client_body_temp;
+    proxy_temp_path /usr/local/nginx/proxy_temp;
+    fastcgi_temp_path /usr/local/nginx/fastcgi_temp;
+    fastcgi_intercept_errors on;
+    tcp_nodelay on;
+    gzip on;
+    gzip_min_length 1k;
+    gzip_buffers 4 8k;
+    gzip_comp_level 5;
+    gzip_http_version 1.1;
+    gzip_types text/plain application/x-javascript text/css text/htm application/xml;
+
+    server
+    {
+        # 端口
+        listen 80;
+        server_name localhost;
+        index index.html index.htm index.php;
+        # 网站根地址
+        root /usr/local/nginx/html;
+
+        location ~ \.php$ {
+            include fastcgi_params;
+            fastcgi_pass 127.0.0.1:9000;
+            fastcgi_index index.php;
+            fastcgi_param SCRIPT_FILENAME /usr/local/nginx/html$fastcgi_script_name;
+        }
+    }
+}</code></pre>
+<p>在<code>/usr/local/nginx/html</code>创建<code>test.php</code>，内容如下</p>
+<pre><code class="php">&lt;?php
+    echo phpinfo();
+?&gt;</code></pre>
+<p>查看<code>http://ip/test.php</code>是否出现phpinfo，并且在里面查看mysql是否正确配置。</p>
+<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><ul>
+<li><a href="http://blog.csdn.net/tanyhuan/article/details/64942722" target="_blank" rel="noopener">AliSQL 安装</a></li>
+<li><a href="https://www.cnblogs.com/zhang-shijie/p/5294162.html" target="_blank" rel="noopener">Nginx 安装</a></li>
+<li><a href="http://blog.csdn.net/dyllove98/article/details/41120789" target="_blank" rel="noopener">5分钟搭建 nginx +php</a></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-09-23T06:14:50.221Z" itemprop="dateUpdated">2019-09-23 14:14:50</time>
+</span><br>
+
+
+        
+        转载请注明作者和出处：<a href="/20180109/Linux服务部署之LNMP搭建.html" target="_blank" rel="external">https://leezj9671.github.io/20180109/Linux服务部署之LNMP搭建.html</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://leezj9671.github.io">
+            <img src="/img/avatar.png" alt="n3ver">
+            n3ver
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/20180224/Gitpages绑定域名及启用HTTPS.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Gitpages绑定域名及启用HTTPS</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/20180108/20180108-Linux服务部署之VSFTP搭建.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Linux服务部署之VSFTP搭建(编译安装)</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <!-- <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"> -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/gitalk/1.5.0/gitalk.css">
+    <!-- <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script> -->
+    <script src="https://cdn.staticfile.org/gitalk/1.5.0/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: 'ad451cc3feb9601c7fb1',
+          clientSecret: '80a6439f8f871afa1e07a8a4a00d0aafce1f8494',
+          repo: 'Leezj9671.github.io',
+          owner: 'leezj9671',
+          admin: ['leezj9671'],
+          id: decodeURI(location.pathname),
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>n3ver &copy; 2017 - 2021</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备19002199号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！-NeverSec';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

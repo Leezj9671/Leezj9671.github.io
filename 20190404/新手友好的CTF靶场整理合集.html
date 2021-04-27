@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>新手友好的CTF靶场整理合集 | NeverSec的博客 | 安全不止 | Hacking fun!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="CTF,靶场">
+    <meta name="description" content="前言我整理得没有那么全，这里的合集主要还是面对新手。做题贵精不在多，好好练习每一题，学习每个知识点，不懂的百度或者 Google 即可。记住，你是为了提高自己而去打 CTF 。">
+<meta name="keywords" content="CTF,靶场">
+<meta property="og:type" content="article">
+<meta property="og:title" content="新手友好的CTF靶场整理合集">
+<meta property="og:url" content="https://leezj9671.github.io/20190404/新手友好的CTF靶场整理合集.html">
+<meta property="og:site_name" content="NeverSec的博客 | 安全不止">
+<meta property="og:description" content="前言我整理得没有那么全，这里的合集主要还是面对新手。做题贵精不在多，好好练习每一题，学习每个知识点，不懂的百度或者 Google 即可。记住，你是为了提高自己而去打 CTF 。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-23T08:36:17.577Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="新手友好的CTF靶场整理合集">
+<meta name="twitter:description" content="前言我整理得没有那么全，这里的合集主要还是面对新手。做题贵精不在多，好好练习每一题，学习每个知识点，不懂的百度或者 Google 即可。记住，你是为了提高自己而去打 CTF 。">
+    
+    <link rel="shortcut icon" href="/favicon.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/sidebar_header.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">n3ver</h5>
+          <a href="mailto:leezj9671@gmail.com" title="leezj9671@gmail.com" class="mail">leezj9671@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                时间线
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Leezj9671" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-link"></i>
+                关于我
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">新手友好的CTF靶场整理合集</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">新手友好的CTF靶场整理合集</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-04T13:00:21.000Z" itemprop="datePublished" class="page-time">
+  2019-04-04
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/CTF/">CTF</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#CTF-比赛时间表"><span class="post-toc-number">2.</span> <span class="post-toc-text">CTF 比赛时间表</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#本地靶场"><span class="post-toc-number">3.</span> <span class="post-toc-text">本地靶场</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#国内-CTF"><span class="post-toc-number">4.</span> <span class="post-toc-text">国内 CTF</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#国外-CTF"><span class="post-toc-number">5.</span> <span class="post-toc-text">国外 CTF</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#漏洞复现"><span class="post-toc-number">6.</span> <span class="post-toc-text">漏洞复现</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#其它大佬整理的链接"><span class="post-toc-number">7.</span> <span class="post-toc-text">其它大佬整理的链接</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-新手友好的CTF靶场整理合集"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">新手友好的CTF靶场整理合集</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-04 21:00:21" datetime="2019-04-04T13:00:21.000Z"  itemprop="datePublished">2019-04-04</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/CTF/">CTF</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我整理得没有那么全，这里的合集主要还是面对新手。做题贵精不在多，好好练习每一题，学习每个知识点，不懂的百度或者 Google 即可。记住，你是为了提高自己而去打 CTF 。</p>
+<a id="more"></a>
+
+<h2 id="CTF-比赛时间表"><a href="#CTF-比赛时间表" class="headerlink" title="CTF 比赛时间表"></a>CTF 比赛时间表</h2><ul>
+<li>CTFwiki（入门必看wiki）: <a href="https://ctf-wiki.github.io/ctf-wiki/#/introduction" target="_blank" rel="noopener">https://ctf-wiki.github.io/ctf-wiki/#/introduction</a></li>
+<li>XCTF社区： <a href="https://time.xctf.org.cn" target="_blank" rel="noopener">https://time.xctf.org.cn</a></li>
+<li>i春秋: <a href="https://www.ichunqiu.com/competition" target="_blank" rel="noopener">https://www.ichunqiu.com/competition</a></li>
+<li>CTFrank: <a href="https://ctfrank.org/" target="_blank" rel="noopener">https://ctfrank.org/</a></li>
+<li>CTFtime（基本都是国外的）: <a href="https://ctftime.org" target="_blank" rel="noopener">https://ctftime.org</a> </li>
+</ul>
+<h2 id="本地靶场"><a href="#本地靶场" class="headerlink" title="本地靶场"></a>本地靶场</h2><ul>
+<li>SQLi: <a href="https://github.com/Audi-1/sqli-labs" target="_blank" rel="noopener">https://github.com/Audi-1/sqli-labs</a></li>
+<li>DVWA: <a href="https://github.com/ethicalhack3r/DVWA" target="_blank" rel="noopener">https://github.com/ethicalhack3r/DVWA</a></li>
+<li>metsploitable3: <a href="https://github.com/rapid7/metasploitable3/" target="_blank" rel="noopener">https://github.com/rapid7/metasploitable3/</a></li>
+<li>Webgoat: <a href="https://github.com/WebGoat/WebGoat" target="_blank" rel="noopener">https://github.com/WebGoat/WebGoat</a></li>
+<li>Juiceshop: <a href="https://github.com/bkimminich/juice-shop" target="_blank" rel="noopener">https://github.com/bkimminich/juice-shop</a></li>
+</ul>
+<h2 id="国内-CTF"><a href="#国内-CTF" class="headerlink" title="国内 CTF"></a>国内 CTF</h2><ul>
+<li>实验吧: <a href="http://www.shiyanbar.com" target="_blank" rel="noopener">http://www.shiyanbar.com</a></li>
+<li>XCTF 实训平台: <a href="http://oj.xctf.org.cn" target="_blank" rel="noopener">http://oj.xctf.org.cn</a></li>
+<li>安恒周周练： <a href="https://www.linkedbyx.com/home" target="_blank" rel="noopener">https://www.linkedbyx.com/home</a></li>
+<li>XSS专练： <a href="https://xss.haozi.me/tools/xss-encode/" target="_blank" rel="noopener">https://xss.haozi.me/tools/xss-encode/</a></li>
+<li>南京邮电大学CTF/网络攻防训练平台: <a href="http://ctf.nuptzj.cn/" target="_blank" rel="noopener">http://ctf.nuptzj.cn/</a></li>
+<li>BugkuCTF: <a href="https://ctf.bugku.com/" target="_blank" rel="noopener">https://ctf.bugku.com/</a></li>
+</ul>
+<h2 id="国外-CTF"><a href="#国外-CTF" class="headerlink" title="国外 CTF"></a>国外 CTF</h2><ul>
+<li>Root-me: <a href="https://root-me.org" target="_blank" rel="noopener">https://root-me.org</a></li>
+<li>CTF365: <a href="https://ctf365.com/" target="_blank" rel="noopener">https://ctf365.com/</a></li>
+</ul>
+<h2 id="漏洞复现"><a href="#漏洞复现" class="headerlink" title="漏洞复现"></a>漏洞复现</h2><ul>
+<li>Vulhub: <a href="https://github.com/vulhub/vulhub" target="_blank" rel="noopener">https://github.com/vulhub/vulhub</a></li>
+</ul>
+<h2 id="其它大佬整理的链接"><a href="#其它大佬整理的链接" class="headerlink" title="其它大佬整理的链接"></a>其它大佬整理的链接</h2><p>多搜搜，很多前辈已经整理了很多啦！</p>
+<ul>
+<li><p>Awesome-Platforms/CTF-Platforms: <a href="https://github.com/We5ter/Awesome-Platforms/blob/master/CTF-Platforms.md" target="_blank" rel="noopener">https://github.com/We5ter/Awesome-Platforms/blob/master/CTF-Platforms.md</a></p>
+</li>
+<li><p>知乎提问： <a href="https://www.zhihu.com/question/267204109/answer/320502511" target="_blank" rel="noopener">https://www.zhihu.com/question/267204109/answer/320502511</a></p>
+</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-09-23T08:36:17.577Z" itemprop="dateUpdated">2019-09-23 16:36:17</time>
+</span><br>
+
+
+        
+        转载请注明作者和出处：<a href="/20190404/新手友好的CTF靶场整理合集.html" target="_blank" rel="external">https://leezj9671.github.io/20190404/新手友好的CTF靶场整理合集.html</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://leezj9671.github.io">
+            <img src="/img/avatar.png" alt="n3ver">
+            n3ver
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CTF/">CTF</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/靶场/">靶场</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/20190407/啥是CTF？新手如何入门CTF？.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">啥是CTF？新手如何入门CTF？</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/20180329/LDAP安装和基本管理手记.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">LDAP安装和基本管理手记</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <!-- <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"> -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/gitalk/1.5.0/gitalk.css">
+    <!-- <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script> -->
+    <script src="https://cdn.staticfile.org/gitalk/1.5.0/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: 'ad451cc3feb9601c7fb1',
+          clientSecret: '80a6439f8f871afa1e07a8a4a00d0aafce1f8494',
+          repo: 'Leezj9671.github.io',
+          owner: 'leezj9671',
+          admin: ['leezj9671'],
+          id: decodeURI(location.pathname),
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>n3ver &copy; 2017 - 2021</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备19002199号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！-NeverSec';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

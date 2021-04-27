@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>2017蓝盾杯bdctf热身题 | NeverSec的博客 | 安全不止 | Hacking fun!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content>
+    <meta name="description" content="又水了一场比赛，蓝盾这次系统漏洞百出，口碑炸裂了……放出我的一些WP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2017蓝盾杯bdctf热身题">
+<meta property="og:url" content="https://leezj9671.github.io/20171013/2017蓝盾杯bdctf热身题.html">
+<meta property="og:site_name" content="NeverSec的博客 | 安全不止">
+<meta property="og:description" content="又水了一场比赛，蓝盾这次系统漏洞百出，口碑炸裂了……放出我的一些WP">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-08-20T02:37:13.792Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2017蓝盾杯bdctf热身题">
+<meta name="twitter:description" content="又水了一场比赛，蓝盾这次系统漏洞百出，口碑炸裂了……放出我的一些WP">
+    
+    <link rel="shortcut icon" href="/favicon.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/sidebar_header.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">n3ver</h5>
+          <a href="mailto:leezj9671@gmail.com" title="leezj9671@gmail.com" class="mail">leezj9671@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                时间线
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Leezj9671" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-link"></i>
+                关于我
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">2017蓝盾杯bdctf热身题</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">2017蓝盾杯bdctf热身题</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-10-13T12:36:20.000Z" itemprop="datePublished" class="page-time">
+  2017-10-13
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/CTF/">CTF</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#WEB"><span class="post-toc-number">1.</span> <span class="post-toc-text">WEB</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Forbidden"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Forbidden</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#False"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">False</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#mdzz"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">mdzz</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Crypto"><span class="post-toc-number">2.</span> <span class="post-toc-text">Crypto</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#base64全家桶"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">base64全家桶</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#MISC"><span class="post-toc-number">3.</span> <span class="post-toc-text">MISC</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#虚拟镜像"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">虚拟镜像</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Stega"><span class="post-toc-number">4.</span> <span class="post-toc-text">Stega</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#愤怒的小鸟"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">愤怒的小鸟</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#空白的图片"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">空白的图片</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#他是什么人"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">他是什么人</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#PPC"><span class="post-toc-number">5.</span> <span class="post-toc-text">PPC</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#求最大循环次数"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">求最大循环次数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#求素数"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">求素数</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#题目链接"><span class="post-toc-number">6.</span> <span class="post-toc-text">题目链接</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-2017蓝盾杯bdctf热身题"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">2017蓝盾杯bdctf热身题</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-10-13 20:36:20" datetime="2017-10-13T12:36:20.000Z"  itemprop="datePublished">2017-10-13</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/CTF/">CTF</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>又水了一场比赛，蓝盾这次系统漏洞百出，口碑炸裂了……放出我的一些WP</p>
+<a id="more"></a>
+<h2 id="WEB"><a href="#WEB" class="headerlink" title="WEB"></a>WEB</h2><p>WEB题目没记录，所以只写思路</p>
+<h3 id="Forbidden"><a href="#Forbidden" class="headerlink" title="Forbidden"></a>Forbidden</h3><p>提示所在地要是在台湾，目测修改HTTP头，然而flag直接在页面了。。</p>
+<h3 id="False"><a href="#False" class="headerlink" title="False"></a>False</h3><p>提示两个参数需要不同且sha1值相同。PHP的sha1函数对数组无用，利用数组绕过。</p>
+<h3 id="mdzz"><a href="#mdzz" class="headerlink" title="mdzz"></a>mdzz</h3><p>平台太卡，做不了</p>
+<h2 id="Crypto"><a href="#Crypto" class="headerlink" title="Crypto"></a>Crypto</h2><h3 id="base64全家桶"><a href="#base64全家桶" class="headerlink" title="base64全家桶"></a>base64全家桶</h3><p>用base64 base32 base16依次解即可</p>
+<h2 id="MISC"><a href="#MISC" class="headerlink" title="MISC"></a>MISC</h2><h3 id="虚拟镜像"><a href="#虚拟镜像" class="headerlink" title="虚拟镜像"></a>虚拟镜像</h3><p>用VMware挂载磁盘，目测NTFS隐藏，利用labs看出来有文件隐藏。<br>执行notepad flag.txt:flaghidden.txt</p>
+<h2 id="Stega"><a href="#Stega" class="headerlink" title="Stega"></a>Stega</h2><h3 id="愤怒的小鸟"><a href="#愤怒的小鸟" class="headerlink" title="愤怒的小鸟"></a>愤怒的小鸟</h3><p>提示使用outguess，直接用outguess即可</p>
+<h3 id="空白的图片"><a href="#空白的图片" class="headerlink" title="空白的图片"></a>空白的图片</h3><p>stegsolve看有个key{},为压缩包密码，解压出gif，给gif添加头GIF8，用stegsolve查看Analyse-Frame Browser，逐帧查看可得</p>
+<h3 id="他是什么人"><a href="#他是什么人" class="headerlink" title="他是什么人"></a>他是什么人</h3><p>foremost就行</p>
+<h2 id="PPC"><a href="#PPC" class="headerlink" title="PPC"></a>PPC</h2><h3 id="求最大循环次数"><a href="#求最大循环次数" class="headerlink" title="求最大循环次数"></a>求最大循环次数</h3><pre><code class="python">def cnt(n):
+   cnt = 1
+   while(n != 1):
+       if n%2 == 0:
+           n = int(n/2)
+       else:
+           n = 3*n + 1
+       cnt += 1
+       # print(n)
+   return cnt
+m = 0
+for i in range(900, 1001):
+   c = cnt(i)
+   m = c if c&gt;m else m
+
+print(m)</code></pre>
+<h3 id="求素数"><a href="#求素数" class="headerlink" title="求素数"></a>求素数</h3><pre><code class="c++">#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+int main() {
+    int start = 367;
+    int diff = 186;
+    // 判断输入的数值，是否是素数
+    int isPrime(int digit) {
+        int sq = sqrt(digit);
+        for (int i = 2; i &lt;= sq; i++) {
+            if (digit % i == 0) {
+                return 0;
+            }
+        }
+        return 1;
+    }
+    int count = 0;  //存储找到的素数的个数
+    int current = start; //存储等差数列的当前值
+    while (1) {
+        if (isPrime(current)) {
+            count += 1;
+            if(count == 151) break;
+        }
+        current += diff;
+    }
+    printf(&quot;第154个素数是: %d&quot;, current);
+}</code></pre>
+<h2 id="题目链接"><a href="#题目链接" class="headerlink" title="题目链接"></a>题目链接</h2><p><a href="http://pan.baidu.com/s/1i5lCHUl" target="_blank" rel="noopener">http://pan.baidu.com/s/1i5lCHUl</a> 密码：ob08</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-08-20T02:37:13.792Z" itemprop="dateUpdated">2020-08-20 10:37:13</time>
+</span><br>
+
+
+        
+        转载请注明作者和出处：<a href="/20171013/2017蓝盾杯bdctf热身题.html" target="_blank" rel="external">https://leezj9671.github.io/20171013/2017蓝盾杯bdctf热身题.html</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://leezj9671.github.io">
+            <img src="/img/avatar.png" alt="n3ver">
+            n3ver
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/20171216/Github Pages搭建.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Github Pages搭建</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/20170823/[CTF]you_need_python_by_sunnyelf.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">you_need_python_by_sunnyelf题解</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <!-- <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"> -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/gitalk/1.5.0/gitalk.css">
+    <!-- <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script> -->
+    <script src="https://cdn.staticfile.org/gitalk/1.5.0/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: 'ad451cc3feb9601c7fb1',
+          clientSecret: '80a6439f8f871afa1e07a8a4a00d0aafce1f8494',
+          repo: 'Leezj9671.github.io',
+          owner: 'leezj9671',
+          admin: ['leezj9671'],
+          id: decodeURI(location.pathname),
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>n3ver &copy; 2017 - 2021</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备19002199号-1</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！-NeverSec';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
